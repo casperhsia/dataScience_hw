@@ -37,5 +37,6 @@ if (args[q+1]=="max"){
 	result[,args[q+1]] <- colnames(result)[apply(result[,2:ncol(result)], 1, which.min)+1]
 }
 # output and write file
-write.table(result, file=args[o+1], row.names=F ,sep=",")
+#print(paste("../Results/", file=args[o+1], sep=""))
+write.table(result, paste("../Results/", file=args[o+1], sep=""), row.names=F ,sep=",")
 
