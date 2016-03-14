@@ -12,6 +12,3 @@ For example, the input can be:
 
 ##Data
 The testing data is in this folder. According to the -files argument.
-
-##Result
-According to the -out argument. You can output the result in this folder.
