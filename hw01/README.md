@@ -1,6 +1,6 @@
 #Homework01 for Data Science in Practice
 ##Scripts
-In this folder, __week3_hwk.R__ is the main program. User have to input following argument:
+In this folder, __hw1\_104753001\_CCHsia.R__ is the main program. User have to input following argument:
 
 1. -query max/min
 2. -files filename1 filename2 ...
@@ -8,11 +8,10 @@ In this folder, __week3_hwk.R__ is the main program. User have to input followin
 
 For example, the input can be: 
 
-	Rscript week3_hwk.R -query max -files test.1.csv test.2.csv -out out.csv
+	Rscript hw1_104753001_CCHsia.R -query max -files ../Data/test.5.csv ../Data/test.6.csv ../Data/test.9.csv ../Data/test.1.csv -output ../Results/output.csv
 
-**Have to put the data in __Data__ folder, and find the output in __Result__ folder
 ##Data
-According to the -files argument. It will read the file in this folder.
+The testing data is in this folder. According to the -files argument.
 
 ##Result
-According to the -out argument. It will write a file and place into this folder.
+According to the -out argument. You can output the result in this folder.
