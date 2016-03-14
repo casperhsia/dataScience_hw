@@ -1,5 +1,4 @@
 args <- commandArgs(trailingOnly=T)
-
 # get the position in args
 q <- pmatch("-query", args)
 f <- pmatch("-files", args)
@@ -13,13 +12,18 @@ if (length(args)==0 | is.na(q) | is.na(f) | is.na(o)) {
 }
 
 # open data
-path <- "../Data/"
 temp <- data.frame()
 result <- data.frame(type=c("weight", "height"))
 
 for (x in c(1:fileCount)) {
-	fname <- args[f+x]
-	temp <- read.table(paste(path, fname, sep=""), sep = ",", stringsAsFactors=F, header=T)
+	filePath <- args[f+x]
+	# split the input path, keep filename only
+	# ^$ -> head and tail, \\ -> escape, () -> replace, 	
+	pattern <- '^.+\\/(.+)\\..+$'
+	fname <- gsub(pattern, '\\1', filePath)
+
+#	temp <- read.table(paste("../Data/", fname, sep=""), sep = ",", stringsAsFactors=F, header=T)
+	temp <- read.table(filePath, sep = ",", stringsAsFactors=F, header=T)
 	
 	if (args[q+1]=="max"){
 		result[,fname] <- c(max(temp$weight, na.rm = T), max(temp$height, na.rm = T))
@@ -30,6 +34,9 @@ for (x in c(1:fileCount)) {
 	}
 }
 
+# round the value with 2 digit
+result[,-1] <- round(result[,-1], 2)
+
 # then use apply() to get the colnames of the max/min value.
 if (args[q+1]=="max"){
 	result[,args[q+1]] <- colnames(result)[apply(result[,2:ncol(result)], 1, which.max)+1]
@@ -37,6 +44,6 @@ if (args[q+1]=="max"){
 	result[,args[q+1]] <- colnames(result)[apply(result[,2:ncol(result)], 1, which.min)+1]
 }
 # output and write file
-#print(paste("../Results/", file=args[o+1], sep=""))
-write.table(result, paste("../Results/", file=args[o+1], sep=""), row.names=F ,sep=",")
+# write.table(result, paste("../Results/", file=args[o+1], sep=""), row.names=F ,sep=",")
+write.table(result, file=args[o+1], row.names=F, sep=",", quote=F)
 
