@@ -8,7 +8,7 @@ In this folder, __hw1\_104753001\_CCHsia.R__ is the main program. User have to i
 
 For example, the input can be: 
 
-	Rscript hw1_104753001_CCHsia.R -query max -files ../Data/test.5.csv ../Data/test.6.csv ../Data/test.9.csv ../Data/test.1.csv -output ../Results/output.csv
+	Rscript hw1_104753001_CCHsia.R -query max -files ../Data/test.5.csv ../Data/test.6.csv -out ../Results/output.csv
 
 ##Data
 The testing data is in this folder. According to the -files argument.
