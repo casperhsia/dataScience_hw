@@ -11,4 +11,7 @@ For example, the input can be:
 	Rscript hw1_104753001_CCHsia.R -query max -files ../Data/test.5.csv ../Data/test.6.csv -out ../Results/output.csv
 
 ##Data
-The testing data is in this folder. According to the -files argument.
+The testing data is in this folder. According to -files argument.
+
+##Results
+There is an example of output in the folder. Accordding to -out argument.
