@@ -24,4 +24,4 @@ The testing data is in this folder. According to -files argument.
 ##Results
 There is an example of output in the folder. Accordding to -out argument.
 
-![alt tag](https://raw.githubusercontent.com/casperhsia/dataScience_hw/master/hw02/Results/set1_ROC.png) "ROC of set1")
+![alt tag](https://raw.githubusercontent.com/casperhsia/dataScience_hw/master/hw02/Results/set1_ROC.png)
