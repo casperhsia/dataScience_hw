@@ -24,4 +24,7 @@ The testing data is in this folder. According to -files argument.
 ##Results
 There is an example of output in the folder. Accordding to -out argument.
 
+I set the threshold of the siganificant as 0.01, but still get most "no" result.
+
+
 ![alt tag](https://raw.githubusercontent.com/casperhsia/dataScience_hw/master/hw02/Results/set1_ROC.png)
