@@ -16,7 +16,7 @@ The explanation of this command:
 - female is positive.
 - It will give [F1,AUC,sensitivity,specificity] value. You can choose only one (-query F1) or more than one (-query F1 AUC).
 - ../Data/set1 is a folder contains 10 .csv of method.
-- ../Results is a folder. The output will have # of -files argument .csv and .png. (We got 3 .csv and 3 .png for this example.)
+- ../Results is a folder. The output will have # of -files argument .csv and .png. (We got 3 .csv and 3 .png in this example.)
 
 ##Data
 The testing data is in this folder. According to -files argument.
