@@ -30,17 +30,13 @@ I set the threshold of the siganificant as 0.01, but still get most "no" result.
 ![alt tag](https://raw.githubusercontent.com/casperhsia/dataScience_hw/master/hw02/Results/set1_ROC.png)
 
 ##Reference
-R Plot  [1](http://www.harding.edu/fmccown/r/)
+- R Plot  [1](http://www.harding.edu/fmccown/r/)
 [2](http://www.statmethods.net/advgraphs/parameters.html)
 [3](http://stackoverflow.com/questions/19053440/r-legend-with-points-and-lines-being-different-colors-for-the-same-legend-item)
-
-ROCR Plot  [1](http://www.inside-r.org/packages/cran/verification/docs/roc.plot)
+- ROCR Plot  [1](http://www.inside-r.org/packages/cran/verification/docs/roc.plot)
 [2](http://stackoverflow.com/questions/14085281/multiple-roc-curves-in-one-plot-rocr)
 [3](http://www.r-bloggers.com/an-example-of-roc-curves-plotting-with-rocr/)
-
-ROCR  [1](https://cran.r-project.org/web/packages/ROCR/ROCR.pdf)
-
-P-value  [1](http://stats.stackexchange.com/questions/75050/in-r-how-to-compute-the-p-value-for-area-under-roc)
+- ROCR  [1](https://cran.r-project.org/web/packages/ROCR/ROCR.pdf)
+- P-value  [1](http://stats.stackexchange.com/questions/75050/in-r-how-to-compute-the-p-value-for-area-under-roc)
 [2](http://blog.xuite.net/metafun/life/82541806-p-value%E3%80%81%E9%A1%AF%E8%91%97%E6%B0%B4%E6%BA%96%E3%80%81Type+I+error,+Type+2+error)
-
-FisherTest  [1](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/fisher.test.html)
+- FisherTest  [1](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/fisher.test.html)
