@@ -24,4 +24,4 @@ The testing data is in this folder. According to -files argument.
 ##Results
 There is an example of output in the folder. Accordding to -out argument.
 
-![alt tag](./Result/set1_ROC.png)
+![Alt text](http://imgur.com/1CYck4o "ROC of set1 (female as positive)")
