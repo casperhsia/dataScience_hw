@@ -24,4 +24,4 @@ The testing data is in this folder. According to -files argument.
 ##Results
 There is an example of output in the folder. Accordding to -out argument.
 
-![alt tag](http://imgur.com/1CYck4o)
+![alt tag](./Result/set1_ROC.png)
