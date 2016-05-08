@@ -1,0 +1,10 @@
+name: hw03
+account: summer
+server: shinyapps.io
+appId: 100678
+bundleId: 444907
+url: https://summer.shinyapps.io/hw03/
+when: 1462716688.39425
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: allResult/Female/set1_ROC.png|allResult/Female/set2_ROC.png|allResult/Female/set3_ROC.png|allResult/Female/set4_ROC.png|allResult/Female/set5_ROC.png|allResult/Male/set1_ROC.png|allResult/Male/set2_ROC.png|allResult/Male/set3_ROC.png|allResult/Male/set4_ROC.png|allResult/Male/set5_ROC.png
