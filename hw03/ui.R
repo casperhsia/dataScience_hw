@@ -15,8 +15,8 @@ shinyUI(pageWithSidebar(
   
   mainPanel(
     tabsetPanel(
-      tabPanel("scatterD3", scatterD3Output("scatter", height = "400px")), 
-      tabPanel("ggPlot2", plotOutput("ggPlot")), 
+      tabPanel("scatterD3", scatterD3Output("scatter", height = "450px")), 
+      tabPanel("ggPlot2", plotOutput("ggPlot", width="500px")), 
       tabPanel("Table", tableOutput("view"))
     )
   )
