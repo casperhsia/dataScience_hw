@@ -8,7 +8,7 @@ shinyUI(pageWithSidebar(
   
   sidebarPanel(
     radioButtons("positive", "Choose what is positive:",
-                       choices = c("male", "female")),
+                       choices = c("Male", "Female")),
     selectInput("dataset", "Choose a dataset:", 
                 choices = c("set1", "set2", "set3", "set4", "set5"))
   ),

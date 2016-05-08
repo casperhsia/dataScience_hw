@@ -9,7 +9,7 @@ shinyServer(function(input, output) {
     datasetInput <- reactive({
       setChoose <- input$dataset
       setPostive <- input$positive
-      read.csv(paste("./allResult/", setPostive, "/", setChoose, ".csv", sep=""), header=TRUE)
+      read.csv(paste("https://raw.githubusercontent.com/casperhsia/dataScience_hw/master/hw03/inputData/", setPostive, "/", setChoose, ".csv", sep=""), header=TRUE)
     })
     
     output$view <- renderTable({
