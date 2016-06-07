@@ -12,7 +12,7 @@ For example, the input can be:
 It will perform 10-fold cross-validation, and give the result.
 
 ##Method
-I use libSVM for R. To execute the Rscript, you have to instll **package e1071**.
+I use libSVM for R. To execute the Rscript, you have to install **package e1071**.
 
 ##Reference
 - libSVM [1] (http://www.csie.ntu.edu.tw/~cjlin/libsvm/R_example)
