@@ -58,17 +58,14 @@ for(i in 1:n){
     cRTable <- table(calibrationResult, calibrationData[,2])
     tRTable <- table(testResult, testData[,2])
 
-    # choose best result, by testData
-    correctCount <- sum(tRTable[1,1])+sum(tRTable[2,2])+sum(tRTable[3,3])+sum(tRTable[4,4])
-    totalCount <- sum(tRTable)
-    if(correctCount / totalCount > accuracy[3]){ # if this fold is better
-    	accuracy[1] <- ( sum(trRTable[1,1])+sum(trRTable[2,2])+sum(trRTable[3,3])+sum(trRTable[4,4]) ) / sum(trRTable)
-    	accuracy[2] <- ( sum(cRTable[1,1])+sum(cRTable[2,2])+sum(cRTable[3,3])+sum(cRTable[4,4]) ) / sum(cRTable)
-    	accuracy[3] <- correctCount / totalCount
-    }
+    # not choose the best model!! add them and count the averge
+    accuracy[1] <- accuracy[1] + ( sum(trRTable[1,1])+sum(trRTable[2,2])+sum(trRTable[3,3])+sum(trRTable[4,4]) ) / sum(trRTable)
+    accuracy[2] <- accuracy[2] + ( sum(cRTable[1,1])+sum(cRTable[2,2])+sum(cRTable[3,3])+sum(cRTable[4,4]) ) / sum(cRTable)
+    accuracy[3] <- accuracy[3] + ( sum(tRTable[1,1])+sum(tRTable[2,2])+sum(tRTable[3,3])+sum(tRTable[4,4]) ) / sum(tRTable)
 }
 
-
+# average acc
+accuracy <- accuracy / n
 # output file
 set <- c("training", "calibration", "test")
 

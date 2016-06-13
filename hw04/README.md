@@ -1,4 +1,9 @@
 #Homework04 for Data Science in Practice
+##Requirement
+To run the program, you need the package **package e1071**
+Then you have to install and include it:
+`install.packages("e1071")`
+`library("e1071")`
 ##hw4\_104753001\_CCHsia.R
 hw4\_104753001\_CCHsia.R is the main program. It will take few minutes to complete the program. User have to input following argument:
 
