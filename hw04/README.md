@@ -2,7 +2,7 @@
 ##Requirement
 To run the program, you need the package **package e1071**.
 
-Then you have to install and include it:
+You have to install and include it:
 
     install.packages("e1071")
     library("e1071")
