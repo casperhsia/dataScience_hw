@@ -1,6 +1,6 @@
 #Homework04 for Data Science in Practice
 ##Requirement
-To run the program, you need the package **package e1071**.
+To run the program, you need the package **package e1071**. It's a SVM package developed by NTU, here is the link and some information: [package e1071] (https://cran.r-project.org/web/packages/e1071/index.html)
 
 You have to install and include it:
 
