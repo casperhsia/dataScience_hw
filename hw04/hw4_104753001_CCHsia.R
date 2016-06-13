@@ -33,7 +33,7 @@ for(i in 1:n){
 
     # % of training vs % of calibration = 90 vs 10
     calibration <- cut(seq(1,nrow(trainData)),breaks=10,labels=FALSE)
-    calibrationIndexes <- which(calibration==i,arr.ind=TRUE)
+    calibrationIndexes <- which(calibration==1 ,arr.ind=TRUE) # use first part as calibration. (1:9)
     calibrationData <- trainData[calibrationIndexes, ]
     trainData <- trainData[-calibrationIndexes, ]
 
