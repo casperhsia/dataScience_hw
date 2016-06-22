@@ -19,8 +19,9 @@ For example, the input can be:
     Rscript main.R -fold 10 -feature all -out output.csv
 
 ##Visualization
-The link of the online [visualization demo] (https://summer.shinyapps.io/finalProject/)
+The link of the online [visualization demo] (https://summer.shinyapps.io/finalProject/).
 
+We can compare different method of feature selection, and also observe the graph of cross validation.
 ##Reference
 - libSVM [1] (http://www.csie.ntu.edu.tw/~cjlin/libsvm/R_example)
 [2] (https://c3h3notes.wordpress.com/2010/10/20/r%E4%B8%8A%E7%9A%84libsvm-package-e1071/)
