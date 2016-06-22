@@ -4,18 +4,17 @@ library(ggplot2)
 # Define UI for dataset viewer application
 shinyUI(pageWithSidebar(
   
-  headerPanel("DataScience"),
+  headerPanel("DataScience Final"),
   
   sidebarPanel(
-    radioButtons("positive", "Choose what is positive:",
-                       choices = c("Male", "Female")),
-    selectInput("dataset", "Choose a dataset:", 
-                choices = c("set1", "set2", "set3", "set4", "set5"))
+    sliderInput("folds", "Controller:",
+                        min = 2, max = 10, value = 1),
+    radioButtons("feature", "Compare feature selection:",
+                       choices = c("All", "Selected", "Random"))
   ),
   
   mainPanel(
     tabsetPanel(
-      tabPanel("scatterD3", scatterD3Output("scatter", height = "450px")), 
       tabPanel("ggPlot2", plotOutput("ggPlot", width="500px")), 
       tabPanel("Table", tableOutput("view"))
     )
