@@ -7,48 +7,56 @@ args <- commandArgs(trailingOnly=TRUE)
 # n is args[f+1], and opFilename is args[o+1]
 f <- pmatch("-fold", args)
 o <- pmatch("-out", args)
+m <- pmatch("-feature", args)
 
 # error in argument, show the tips
 # only check some obvious input error, use the package will be better than parsing by myself.
-if (length(args)==0 | is.na(f) | is.na(o)) {
-	stop("USAGE: Rscript main.R -fold n –out op.csv", call.=FALSE)
+if (length(args)==0 | is.na(f) | is.na(o) | is.na(m)) {
+	stop("USAGE: Rscript main.R -fold n -feature [all, slct, rand] –out op.csv", call.=FALSE)
 }
 
 # open data
 data <- read.csv("./STULONGData.txt",header=TRUE)
-dataY <- subset(data, death == 'Y')
-dataN <- subset(data, death == 'N')
 
 # randomly shuffle the data
-dataY <- dataY[sample(nrow(dataY)),]
-dataN <- dataN[sample(nrow(dataN)),]
+data <- data[sample(nrow(data)),]
 
 # create n folds
 n <- as.integer(args[f+1])
-foldsY <- cut(seq(1,nrow(dataY)),breaks=n,labels=FALSE)
-foldsN <- cut(seq(1,nrow(dataN)),breaks=n,labels=FALSE)
+folds <- cut(seq(1,nrow(data)),breaks=n,labels=FALSE)
 
 # n fold cross validation
-accuracy <- c(0,0)
+goodfeature <- c(3,8,9,15,16,17,20,22)
+randomfeature <- sample(1:23, 8, replace=F)
+result <- c() 
 for(i in 1:n){
-    testIndexesY <- which(foldsY==i,arr.ind=TRUE)
-    testIndexesN <- which(foldsN==i,arr.ind=TRUE)
+    testIndexes <- which(folds==i,arr.ind=TRUE)
 
-    testDataY <- dataY[testIndexesY, ]
-    testDataN <- dataN[testIndexesN, ]
-    trainDataY <- dataY[-testIndexesY, ]
-    trainDataN <- dataN[-testIndexesN, ]
+    testData <- data[testIndexes, ]
+    trainData <- data[-testIndexes, ]
+    
+    trainY <- subset(trainData, death == 'Y')
+    trainN <- subset(trainData, death == 'N')
+    
+    # balance the training data 50%:50%
+    counterY <- nrow(trainY)
+    trainN <- head(trainN, counterY)
+    trainData <- rbind(trainY, trainN)
 
     # training, y is label. use SVM
-    x <- rbind(trainDataY[,1:23], trainDataN[,1:23])
+    # all slct rand
+    x <- trainData[,1:23] #all 
+    if(args[o+1]=='slct'){
+        x <- trainData[,goodfeature]}
+    if(args[o+1]=='rand'){
+        x <- trainData[,randomfeature]}
     # x <- trainData[,c(3,8,9,15,16,17,20,22)]
-    y <- c(trainDataY[,24], trainDataN[,24])
-    print(y)
-    
+
+    y <- trainData[,24]
     model <- svm(x,y)
     # predict
     trainResult <- predict(model, x)
-    testResult <- predict(model, append(testDataY[,1:23], testDataN[,1:23]))
+    testResult <- predict(model, testData[,1:23])
     # prdict table, for example:
     #	testResult CP CW EC IM
     #			CP 65  0  0  0
@@ -56,19 +64,25 @@ for(i in 1:n){
     #			EC  0  0  1  1
     #			IM  0  0  0  9
     trRTable <- table(trainResult, y)
-    tRTable <- table(testResult, append(testDataY[,24], testDataN[,24]))
-    print(trRTable)
+    tRTable <- table(testResult, testData[,24])
+    
     # not choose the best model!! add them and count the averge
-    accuracy[1] <- accuracy[1] + ( sum(trRTable[1,1])+sum(trRTable[2,2]) ) / sum(trRTable)
-    accuracy[2] <- accuracy[2] + ( sum(tRTable[1,1])+sum(tRTable[2,2]) ) / sum(tRTable)
+    
+    tp <- tRTable[2,2]
+    fp <- tRTable[1,2]
+    tn <- tRTable[1,1]
+    fn <- tRTable[2,1]
+    
+    acc <- c(i, "Acc", (tp+tn)/(tp+fp+tn+fn))
+    f1 <- c(i, "F1", 2*tp/(2*tp+fp+fn))
+    recall <- c(i, "Recall", tp/(tp+fn))
+    precision <- c(i, "Precision", tp/(tp+fp))
+    
+    result <- rbind(result, acc, f1, recall, precision)
 }
 
-# average acc
-accuracy <- accuracy / n
 # output file
-set <- c("training", "test")
 
-result <- cbind(set, accuracy)
-colnames(result) <- c("set", "accuracy")
-
+#result <- cbind(set, accuracy)
+colnames(result) <- c("iterTimes", "Type", "Value")
 write.table(result, file = args[o+1], sep=',', row.names=FALSE)

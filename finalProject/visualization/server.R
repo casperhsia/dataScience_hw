@@ -9,7 +9,7 @@ shinyServer(function(input, output) {
     datasetInput <- reactive({
       foldsCount <- input$folds
       methodFeature <- input$feature
-      read.csv(text=getURL(paste("https://raw.githubusercontent.com/casperhsia/dataScience_hw/master/finalProject/result/", methodFeature, "/",foldsCount, "folds", sep = "")), header=TRUE)
+      read.csv(text=getURL(paste("https://raw.githubusercontent.com/casperhsia/dataScience_hw/master/finalProject/result/",methodFeature,"/","folds",foldsCount,sep = "")), header=TRUE)
     })
     
     output$view <- renderTable({
@@ -35,7 +35,4 @@ shinyServer(function(input, output) {
       
       ggplot(csvData, aes(x=iterTimes, y=Value, fill=Type)) + geom_bar(stat="identity", position=position_dodge(), colour="black")
     })
-    
-    
-
 })

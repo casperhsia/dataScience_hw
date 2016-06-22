@@ -7,7 +7,7 @@ shinyUI(pageWithSidebar(
   headerPanel("DataScience Final"),
   
   sidebarPanel(
-    sliderInput("folds", "Controller:",
+    sliderInput("folds", "n-fold Cross Validation:",
                         min = 2, max = 10, value = 1),
     radioButtons("feature", "Compare feature selection:",
                        choices = c("All", "Selected", "Random"))
@@ -15,7 +15,7 @@ shinyUI(pageWithSidebar(
   
   mainPanel(
     tabsetPanel(
-      tabPanel("ggPlot2", plotOutput("ggPlot", width="500px")), 
+      tabPanel("ggPlot2", plotOutput("ggPlot", width="600px")), 
       tabPanel("Table", tableOutput("view"))
     )
   )
