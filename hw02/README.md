@@ -1,5 +1,5 @@
-#Homework02 for Data Science in Practice
-##Scripts
+# Homework02 for Data Science in Practice
+## Scripts
 In this folder, __hw2\_104753001\_CCHsia.R__ is the main program. User have to input following argument:
 
 1. -target male/female
@@ -18,16 +18,16 @@ The explanation of this command:
 - ../Data/set1 is a folder contains 10 .csv of method.
 - ../Results is a folder. The output will have # of -files argument .csv and .png. (We got 3 .csv and 3 .png in this example.)
 
-##Data
+## Data
 The testing data is in this folder. According to -files argument.
 
-##Results
+## Results
 There is an example of output in the folder. I set the threshold of the siganificant as 0.01, but still get most "no" result. Following graph is the result of set1 (female as positive).
 
 
 ![alt tag](https://raw.githubusercontent.com/casperhsia/dataScience_hw/master/hw02/Results/set1_ROC.png)
 
-##Reference
+## Reference
 - R Plot  [1](http://www.harding.edu/fmccown/r/)
 [2](http://www.statmethods.net/advgraphs/parameters.html)
 [3](http://stackoverflow.com/questions/19053440/r-legend-with-points-and-lines-being-different-colors-for-the-same-legend-item)
